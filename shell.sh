@@ -1,11 +1,9 @@
 #!/bin/bash
 
-pwd
-ls -l
-cat
-echo hello world
+date=$(date +%F)
 
+NO-USER=$(cat /etc/passwd | wc -l)
 
+echo "the number of usrs are ${NO-USER}
 
-
-history
+and the date is $(date)"
