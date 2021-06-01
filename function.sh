@@ -17,3 +17,4 @@ distance() {
 }
 
 distance
+distance(speed time)
