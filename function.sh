@@ -10,7 +10,7 @@ read -p "ENTER THE TIME : " time
 
 distance() {
   echo -e "\e[33m YOUR DISTANCE IS CALCULATED SUCCESSFULLY \e[0m"
-  distance= $speed * $time;
+  distance= speed * time
   echo -e "\e[35m Your distance = $distance \e[0m"
 
 }
