@@ -17,4 +17,4 @@ distance() {
 }
 
 distance
-distance "$1" "$2"
+distance "$speed" "$time"
