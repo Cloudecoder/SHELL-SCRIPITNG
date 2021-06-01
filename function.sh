@@ -17,4 +17,4 @@ distance() {
 }
 
 distance
-distance(speed time)
+distance($1 $2)
