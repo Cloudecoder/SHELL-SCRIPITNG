@@ -1,33 +1,33 @@
 help:
-	@echo
+	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 
-frontend:
+frontend:					##enter "make frontend" to execute
 	@sh components/frontend.sh
 
-mongodb:
+mongodb:					##enter "make mongodb" to execute
 	@sh components/mongodb.sh
 
-catalogue:
+catalogue:					##enter "make catalogue" to execute
 	@sh components/catalogue.sh
 
-redis:
+redis:						##enter "make redis" to execute
 	@sh components/redis.sh
 
-user:
+user:						##enter "make user" to execute
 	@sh components/user.sh
 
-cart:
+cart:						##enter "make cart" to execute
 	@sh components/cart.sh
 
-mysql:
+mysql:						##enter "make mysql" to execute
 	@sh components/mysql.sh
 
-shipping:
+shipping:					##enter "make shipping" to execute
 	@sh components/shipping.sh
 
-payment:
+payment:					##enter "make payment" to execute
 	@sh components/payment.sh
 
-rabbitmq:
+rabbitmq:					##enter "make rabbitmq" to execute
 	@sh components/rabbitmq.sh
 
