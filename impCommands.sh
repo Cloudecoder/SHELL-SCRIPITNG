@@ -11,4 +11,5 @@ sample () {
  a=10
  sample
  sample xyz
+ sample $1
  echo value of b = $b
