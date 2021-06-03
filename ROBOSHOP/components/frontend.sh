@@ -20,7 +20,7 @@ HEAD "delete old htdocs"
 rm -rf /usr/share/nginx/html/*
 STAT $?
 
-HEAD "unzip file"
+HEAD "unzip file\t"
 unzip -d /usr/share/nginx/html /tmp/frontend.zip &>>/tmp/roboshop.log
 cd /usr/share/nginx/html
 mv frontend-main/* .
