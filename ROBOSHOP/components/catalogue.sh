@@ -21,7 +21,7 @@ STAT $?
 
 HEAD "NPM install (node dependency)"
 cd /home/roboshop/catalogue
-npm install &>>/tmp/roboshop.log
+npm install --unsafe-perm &>>/tmp/roboshop.log
 STAT $?
 
 
