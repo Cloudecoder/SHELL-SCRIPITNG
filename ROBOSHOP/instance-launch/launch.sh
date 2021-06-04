@@ -14,5 +14,5 @@ ver=1
 ##aws ec2 run-instances --launch-template LaunchTemplateId=lt-0dde63c285c407ba5,Version=1
 
 ##To launch the instance with name
-aws ec2 run-instances --launch-template LaunchTemplateId=${LTid},Version=${ver} --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${component}]"
+aws ec2 run-instances --launch-template LaunchTemplateId=${LTid},Version=${ver} --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${component}}]"
 
