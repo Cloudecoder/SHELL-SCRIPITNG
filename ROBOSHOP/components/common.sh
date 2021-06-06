@@ -34,7 +34,7 @@ USER_ADD() {
 
  }
 
-NODE-JS() {
+NODE_JS() {
   HEAD "Installing NOdejs"
 yum install nodejs make gcc-c++ -y &>>/tmp/roboshop.log
 STAT $?

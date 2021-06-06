@@ -21,10 +21,6 @@ HEAD "Update IP Addr"
 sed -i -e 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
 STAT $?
 
-HEAD "Start MongoDB Service"
-systemctl enable mongod &>>/tmp/roboshop.log
-systemctl start mongod &>>/tmp/roboshop.log
-STAT $?
 
 HEAD "Downloading Sourse Code"
 curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip"
@@ -39,6 +35,12 @@ HEAD "Load Schema"
 cd mongodb-main
 mongo < catalogue.js &>>/tmp/roboshop.log && mongo < users.js &>>/tmp/roboshop.log
 STAT $?
+
+HEAD "Start MongoDB Service"
+systemctl enable mongod &>>/tmp/roboshop.log
+systemctl start mongod &>>/tmp/roboshop.log
+STAT $?
+
 
 
 # mongo < catalogue.js
