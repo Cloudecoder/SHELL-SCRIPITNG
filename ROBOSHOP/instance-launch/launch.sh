@@ -15,7 +15,7 @@ ver=1
 
 ##Validate Instrance is already there
 INSTANCE_STATE=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${component}" | jq .Reservation[].Instance[].State.Name | xargs -n1)
-if [ "{INSTANCE_STATE}" = "running" ]; then
+if [ "${INSTANCE_STATE}" = "running" ]; then
   echo"instance is already there"
   exit 0
 fi

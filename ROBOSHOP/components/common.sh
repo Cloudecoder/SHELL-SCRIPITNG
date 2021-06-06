@@ -50,7 +50,7 @@ cd /home/roboshop  && rm -rf $1 && unzip /tmp/$1.zip &>>/tmp/roboshop.log && mv 
 STAT $?
 
 HEAD "NPM install (node dependency)"
-cd /home/roboshop/catalogue
+cd /home/roboshop/$1
 npm install --unsafe-perm &>>/tmp/roboshop.log
 STAT $?
 
@@ -59,11 +59,11 @@ chmod roboshop:roboshop /home/roboshop -R
 STAT $?
 
 HEAD "Setup SystemD Service"
-sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/roboshop/catalogue/systemd.service && mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
+sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/roboshop/$1/systemd.service && mv /home/roboshop/$1/systemd.service /etc/systemd/system/$1.service
 STAT $?
 
 HEAD "STart Catalogue Service"
-systemctl daemon-reload && systemctl enable catalogue &>>/tmp/roboshop.log && systemctl restart catalogue &>>/tmp/roboshop.log
+systemctl daemon-reload && systemctl enable $1 &>>/tmp/roboshop.log && systemctl restart $1 &>>/tmp/roboshop.log
 STAT $?
 
 }
