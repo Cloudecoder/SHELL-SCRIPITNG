@@ -27,7 +27,6 @@ uninstall plugin validate_password;" >/tmp/db.sql
 
 HEAD "Validate for existing users"
 echo show databases | mysql -uroot -pRoboshop@1 &>>/tmp/roboshop.log
-STAT $1
 if [ $? -ne 0 ]; then
   HEAD "Reset MYSQL passwd"
   mysql --connect-expired-password -uroot -p"${DEF_PASS}" </tmp/db.sql &>>/tmp/roboshop.log
