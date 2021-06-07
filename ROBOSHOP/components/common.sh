@@ -34,6 +34,12 @@ USER_ADD() {
 
  }
 
+DOWNLOAD_FROM_GITHUB() {
+  HEAD "download from github"
+  curl -s -L -o /tmp/$1.zip "https://github.com/roboshop-devops-project/$1/archive/main.zip" &>>/tmp/roboshop.log
+  STAT $?
+}
+
 NODE_JS() {
   HEAD "Installing NOdejs"
 yum install nodejs make gcc-c++ -y &>>/tmp/roboshop.log
@@ -41,9 +47,7 @@ STAT $?
 
 USER_ADD
 
-HEAD "Download from Github"
-curl -s -L -o /tmp/$1.zip "https://github.com/roboshop-devops-project/$1/archive/main.zip" &>>/tmp/roboshop.log
-STAT $?
+DOWNLOAD_FROM_GITHUB $1
 
 HEAD "Extract the files "
 cd /home/roboshop  && rm -rf $1 && unzip /tmp/$1.zip &>>/tmp/roboshop.log && mv $1-main $1
@@ -67,3 +71,4 @@ systemctl daemon-reload && systemctl enable $1 &>>/tmp/roboshop.log && systemctl
 STAT $?
 
 }
+

@@ -20,14 +20,27 @@ HEAD "Restart MySQL "
 systemctl enable mysqld && systemctl start mysqld
 STAT $?
 
-DEF_PASS=$(grep 'A temporary password' /var/log/mysqld.log | awk {'print$NF'})
+DEF_PASS=$(grep 'A temporary password' /var/log/mysqld.log | awk '{print $NF}')
 
 echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'Roboshop@1';
 uninstall plugin validate_password;" >/tmp/db.sql
 
-HEAD "Reset MYSQL passwd"
-mysql --connect-expired-password -uroot -p"${DEF_PASS}" </tmp/db.sql &>>/tmp/roboshop.log
+HEAD "Validate for existing users"
+echo show databases | mysql -uroot -pRoboshop@1
+if [ $? -ne 0 ]; then
+  HEAD "Reset MYSQL passwd"
+  mysql --connect-expired-password -uroot -p"${DEF_PASS}" </tmp/db.sql &>>/tmp/roboshop.log
+  STAT $?
+fi
+
+DOWNLOAD_FROM_GITHUB mysql
+
+HEAD "Loading the Schema"
+cd /tmp && unzip mysql.zip &>>/tmp/roboshop.log &&  cd mysql-main && mysql -u root -pRoboshop@1 <shipping.sql &>>/tmp/roboshop.log
 STAT $?
+
+
+
 
 
 
