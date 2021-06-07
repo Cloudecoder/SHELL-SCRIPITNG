@@ -8,7 +8,7 @@ if [ -z "${component}" ]; then
 fi
 
 LTid=lt-0dde63c285c407ba5
-ver=1
+ver=4
 
 ## To launch the template without name
 ##aws ec2 run-instances --launch-template LaunchTemplateId=lt-0dde63c285c407ba5,Version=1
@@ -28,3 +28,6 @@ fi
 ##To launch the instance with name
 aws ec2 run-instances --launch-template LaunchTemplateId=${LTid},Version=${ver} --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${component}}]" | jq
 
+
+
+##aws route53 get-hosted-zone --id Z048532427Z8A2VSNE7P3
