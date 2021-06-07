@@ -13,7 +13,7 @@ gpgcheck=0' > /etc/yum.repos.d/mysql.repo
 STAT $?
 
 HEAD "Installing mYSQl"
-yum remove mariadb-libs -y && yum install mysql-community-server -y &>>/tmp/roboshop.log
+yum remove mariadb-libs -y &>>/tmp/roboshop.log && yum install mysql-community-server -y &>>/tmp/roboshop.log
 STAT $?
 
 HEAD "Restart MySQL "
