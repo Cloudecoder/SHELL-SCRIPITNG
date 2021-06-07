@@ -20,8 +20,16 @@ HEAD "Restart MySQL "
 systemctl enable mysqld && systemctl start mysqld
 STAT $?
 
-HEAD "Generate root password"
-grep temp /var/log/mysqld.log
+DEF_PASS=$(grep 'A temporary password' /var/log/mysqld.log | awk {'print$NF'})
+
+echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
+uninstall plugin validate_password;" >/tmp/db.sql
+
+HEAD "Reset MYSQL passwd"
+mysql -uroot -p"${DEF_PASS}" </tmp/db.sql &>>/tmp/roboshop.log
+STAT $?
+
+
 
 
 
