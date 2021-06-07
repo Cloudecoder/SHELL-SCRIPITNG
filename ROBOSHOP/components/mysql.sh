@@ -16,6 +16,10 @@ HEAD "Installing mYSQl"
 yum remove mariadb-libs -y && yum install mysql-community-server -y &>>/tmp/roboshop.log
 STAT $?
 
+HEAD "Restart MySQL "
+systemctl enable mysqld && systemctl start mysqld
+STAT $?
+
 HEAD "Generate root password"
 grep temp /var/log/mysqld.log
 
