@@ -26,7 +26,7 @@ echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
 uninstall plugin validate_password;" >/tmp/db.sql
 
 HEAD "Reset MYSQL passwd"
-mysql -uroot -p"${DEF_PASS}" </tmp/db.sql &>>/tmp/roboshop.log
+mysql --connect-expired-password -uroot -p"${DEF_PASS}" </tmp/db.sql &>>/tmp/roboshop.log
 STAT $?
 
 
