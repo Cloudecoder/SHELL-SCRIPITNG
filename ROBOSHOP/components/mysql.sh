@@ -22,7 +22,7 @@ STAT $?
 
 DEF_PASS=$(grep 'A temporary password' /var/log/mysqld.log | awk {'print$NF'})
 
-echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
+echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'Roboshop@1';
 uninstall plugin validate_password;" >/tmp/db.sql
 
 HEAD "Reset MYSQL passwd"
