@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../ANSIBLE/ANSIBLE.iml" filepath="$PROJECT_DIR$/../ANSIBLE/ANSIBLE.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/SHELL-SCRIPITNG.iml" filepath="$PROJECT_DIR$/.idea/SHELL-SCRIPITNG.iml" />
     </modules>
   </component>
