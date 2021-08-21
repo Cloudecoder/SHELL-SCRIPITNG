@@ -10,7 +10,7 @@ done
 a=1
 while [ $a -eq 10 ]; do
   echo "$number x $a =" $((number * $a))
-  a= `expr $a+1`
+  a=$a+1
 
 done
 
