@@ -9,7 +9,7 @@ done
 
 a=1
 while [ $a -eq 10 ]; do
-  echo "$number x $a =" $((number * $a))
+  echo "$number x $a =" $((number * a))
   a=$a+1
 
 done
