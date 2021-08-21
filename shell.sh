@@ -11,3 +11,10 @@ while [ $a -le 10  ]; do
     a=$((a+1))
 done
 
+ls -lrt
+user=$(id -u)
+if [ $user -eq 0 ]; then
+    echo "you are a root user"
+    else
+      echo "you are a normal user"
+fi
