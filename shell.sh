@@ -7,6 +7,12 @@ for (( i = 1; i <= 10; i++ )); do
 done
 
 
+a=1
+while [ $a -eq 10 ]; do
+  echo "$number x $a =" $((number * $a))
+  a= `expr $a+1`
+
+done
 
 
 
