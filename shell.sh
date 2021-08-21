@@ -1,9 +1,11 @@
 #!/bin/bash
 
-date=$(date +%F)
+number=5
+for (( i = 0; i < 10; i++ )); do
+    echo "$number x $i =" $number*$i
+done
 
-NO-USER=$(cat /etc/passwd | wc -l)
 
-echo "the number of usrs are ${NO-USER}
 
-and the date is $(date)"
+
+
